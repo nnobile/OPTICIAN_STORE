@@ -1,0 +1,2 @@
+class OpticiansController < ApplicationController
+end
