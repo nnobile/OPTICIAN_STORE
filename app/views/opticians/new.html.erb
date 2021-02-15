@@ -1,20 +1,35 @@
-<h1>Sign up here</h1>
+<h1>Sign up below</h1>
+<h3>Please add your information and hit "Register" once complete!</h3>
 
 <%=form_for(@optician) do |f| %>
 
+    <div><br>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
+    </div></br>
 
+    <div><br>
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
+    </div></br>
 
+    <div><br>
     <%= f.label :username %>
     <%= f.text_field :username %>
+    </div></br>
 
+    <div><br>
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
+    </div></br>
 
+    <div><br>
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
+    </div></br>
+
+    <div><br>
+    <%= f.submit "Register" %>
+    </div></br>
 
 <% end %>
