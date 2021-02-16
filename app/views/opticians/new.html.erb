@@ -1,5 +1,5 @@
 <h1>Sign up below</h1>
-<h3>Please add your information and hit "Register" once complete!</h3>
+<h3>Please add your details below and hit "Register" once complete!</h3>
 
 <%=form_for(@optician) do |f| %>
 
@@ -26,6 +26,11 @@
     <div><br>
     <%= f.label :password %>
     <%= f.password_field :password %>
+    </div></br>
+
+    <div><br>
+    <%= f.label :certificate_number %>
+    <%= f.text_field :certificate_number %>
     </div></br>
 
     <div><br>
