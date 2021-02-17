@@ -11,3 +11,15 @@ Optician.create([
     {username: "tjones", email: "tom.jones@jonesglasses.com", first_name: "Tom", last_name: "Jomes", password: "yeti23", certificate_number: 110373},
     {username: "bkildree", email: "benkildree@nycoptical.com", first_name: "Ben", last_name: "Kildree", password: "wildprarie", certificate_number: 736468}
 ])
+
+Optometrist.create([
+
+{}
+
+])
+
+Patient.create([
+
+{}
+
+])
