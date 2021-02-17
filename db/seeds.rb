@@ -6,22 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Patient.create([
-    {first_name: "Jason", last_name: "Jones", email: "jjones@gmail.com", address: "403 Hawthorne Way, Westport, CT, 06880", birthdate: 1976-04-02, prescription_notes: "OD/SPH: -2, OD/CYL -1" }
-
-
-
+Optician.create([
+    {username: "emamelok", email: "emamelok@2020optical.com", first_name: "Eddy", last_name: "Mamelok", password: "arcadia15", certificate_number: 354789},
+    {username: "tjones", email: "tom.jones@jonesglasses.com", first_name: "Tom", last_name: "Jomes", password: "yeti23", certificate_number: 110373},
+    {username: "bkildree", email: "benkildree@nycoptical.com", first_name: "Ben", last_name: "Kildree", password: "wildprarie", certificate_number: 736468}
 ])
-
-
-t.string "first_name"
-    t.string "last_name"
-    t.string "phone_number"
-    t.string "email"
-    t.string "address"
-    t.date "birthdate"
-    t.string "prescription_notes"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "optician_id"
-    t.integer "optometrist_id"
