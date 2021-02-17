@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :patients
   root 'sessions#home'
   get '/signup', to: 'opticians#new'
   get '/login', to: 'sessions#new'
