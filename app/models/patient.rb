@@ -7,6 +7,12 @@ class Patient < ApplicationRecord
         "#{self.first_name}, #{self.last_name} -- Total Revenue = #{self.total_revenue}"
     end
 
+    def display_total_revenue
+        
+    end
+
+
+
         
 
 end
