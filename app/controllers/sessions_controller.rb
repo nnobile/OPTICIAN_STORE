@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
             redirect_to patients_path
         else
             flash[:error] = "Sorry, please check your credentials and try again."
-            redirect_to 'login'
+            redirect_to '/login'
         end
     end
 
