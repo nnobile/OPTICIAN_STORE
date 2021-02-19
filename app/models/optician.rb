@@ -3,5 +3,5 @@ class Optician < ApplicationRecord
     has_many :patients
     has_many :optometrists, through: :patients
     validates :username, :email, :certificate_number, presence: true
-    validates :username, :email, :certificate_number, uniqueness: true
+    validates :username, :email, :certificate_number, uniqueness: true 
 end
