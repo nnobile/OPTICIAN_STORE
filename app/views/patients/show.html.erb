@@ -1,12 +1,12 @@
-<h1>Patient Show</h1>
+<h1> <%= @patient.first_name %> <%= @patient.last_name%> Information</h1>
 
-First Name:
-Last Name:
-Phone Number:
-Email:
-Address:
-Birthdate:
-Optometrist of Record:
-Total Revenue: <%= @patient.display_total_revenue %> <br>
-Notes:
+First Name: <%= @patient.first_name %> <br>
+Last Name: <%= @patient.last_name %> <br>
+Phone Number: <%= @patient.phone_number %> <br>
+Email: <%= @patient.email %> <br>
+Address: <%= @patient.address %> <br>
+Birthdate: <%= @patient.birthdate %> <br>
+Optometrist of Record: <%= @patient.optometrist.first_name %>, <%= @patient.optometrist.last_name %> <br>
+Total Revenue: <%= @patient.total_revenue %> <br>
+Notes: <%= @patient.notes %>
 
