@@ -10,7 +10,7 @@ class OpticiansController < ApplicationController
         @optician = Optician.new(optician_params)
         if @optician.save
             #login the user
-            session[:optician_id] = @optician.optician_id
+            session[:optician_id] = @optician.id
             redirect_to patient_path
         else
             render :new
