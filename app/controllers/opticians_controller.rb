@@ -17,6 +17,14 @@ class OpticiansController < ApplicationController
         end
     end
 
+    def destroy
+        if logged_in?
+            current_user.destroy
+        else
+            redirect_to signup_path
+        end
+    end
+
     
     private
 
