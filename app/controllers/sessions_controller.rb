@@ -16,6 +16,15 @@ class SessionsController < ApplicationController
         end
     end
 
+    def omniauth
+        optician = Optician.from_omniauth(request.env['omniauth.auth'])
+        if optician.valid?
+            session[:optician_id] = optician.id
+            redirect_to optician_path(optician)
+        else
+            redirect_to signup_path
+        end
+    end
 
     def home
     end
