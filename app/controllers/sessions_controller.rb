@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
+        #check step 8 in google oauth2 for rails guide
         optician = Optician.from_omniauth(request.env['omniauth.auth'])
         if optician.valid?
             session[:optician_id] = optician.id
