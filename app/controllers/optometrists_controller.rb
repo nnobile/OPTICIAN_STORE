@@ -13,9 +13,22 @@ class OptometristsController < ApplicationController
             @optometrist = Optometrist.create(optometrist_params)
             @optometrist.save
         else
-            redirect_to login_path
+            redirect_to signup_path
         end
     end
+
+    def destroy
+        # upon deletion, reassign all linked patients to dummy optometrist
+        # opticians that are not linked to optometrist can delete optometrist?
+        if logged_in?
+            @current_optometrist = Optometrist.find_by(id: params[:id])
+            @current_optometrist.destroy
+            redirect_to optometrists_path
+        else
+            redirect_to signup_path
+        end
+    end
+
 
 
     end
