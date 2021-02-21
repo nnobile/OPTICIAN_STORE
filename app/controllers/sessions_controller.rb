@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
         @optician = Optician.find_by(username: params[:optician][:username])
         if @optician && @optician.authenticate(params[:optician][:password])
             session[:optician_id] = @optician.id
-            flash[:success] = "Welcome back, #{@optician.first_name}."
-            redirect_to optician_path(@optician)
+            flash[:success] = "Welcome, #{@optician.first_name}."
+            redirect_to patients_path
         else
             flash[:error] = "Sorry, please check your credentials and try again."
             redirect_to '/login'
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
         optician = Optician.from_omniauth(request.env['omniauth.auth'])
         if optician.valid?
             session[:optician_id] = optician.id
-            redirect_to optician_path(optician)
+            redirect_to patient_path
         else
             redirect_to signup_path
         end

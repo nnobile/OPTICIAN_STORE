@@ -1,11 +1,12 @@
 class PatientsController < ApplicationController
 
     def index
-        if params[:optician_id] && optician = Optician.find_by_id(params[:optician_id])
+        #if params[:optician_id] && optician = Optician.find_by_id(params[:optician_id])
         @patients = Patient.order(:last_name)
     end
 
     def show
+        @patient = Patient.find(params[:id])
     end
 
     def new
@@ -13,27 +14,27 @@ class PatientsController < ApplicationController
             @patient = optician.patients.build
         else
             @patient = Patient.new
-            @patient.build_optician
         end
     end
 
     def create
-        @patient = current_user.patients.build(patient_params)
-        if @patient.save
-        flash[:success] = "New patient successfully added."
-        redirect_to patient_path(@patient)
+        if logged_in?
+            @patient = Patient.create(patient_params)
+            flash[:success] = "New patient successfully added."
+            redirect_to patients_path
         else
             render :new
         end
     end
 
-    def edit 
+    def edit
+        @patient = Patient.find(params[:id])
     end
 
     def update
         if @patient.update(patient_params)
             flash[:success] = "This patient was successfully updated."
-            redirect_to edit_patient_path(@patient)
+            redirect_to patients_path
         else
             render :edit
         end

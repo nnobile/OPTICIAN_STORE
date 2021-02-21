@@ -1,8 +1,8 @@
 <h1> All Patients </h1>
 <h4> Patient Names: </h4>
 
-<ul><% Patient.patients_optician(optician_id).each do |patient| %>
-    <li> <%= patient.first_name %> <%= patient.last_name  %></li>
+<ul><% @patients.each do |patient| %>
+    <li> <%= patient.first_name %> <%= patient.last_name %> </li>
 
 <%end%>
 </ul>
