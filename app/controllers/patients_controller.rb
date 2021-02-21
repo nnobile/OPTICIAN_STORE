@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-include ApplicationHelper
+before_action :check_for_logged_in #, except: [:index]
 
     def index
         @patients = Patient.order(:last_name)
@@ -10,7 +10,12 @@ include ApplicationHelper
     end
 
     def new
-        @patient = Patient.new
+        if params[:optician_id] && optician = Optician.find_by_if(params[:optician_id])
+            @patient = optician.patients.build
+        else
+            @patient = Patient.new
+            @patient.build_optician
+
     end
 
     def create

@@ -5,15 +5,10 @@ class OpticiansController < ApplicationController
         @optician = Optician.new
     end
 
-    def index
-        @opticians = Optician.all
-    end
-
     # Handling signup
     def create
         @optician = Optician.new(optician_params)
         if @optician.save
-            #login the user
             session[:optician_id] = @optician.id
             redirect_to new_patient_path
         else
@@ -28,9 +23,6 @@ class OpticiansController < ApplicationController
             redirect_to signup_path
         end
     end
-
-    
-
     
     private
 
