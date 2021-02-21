@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
         @optician = Optician.find_by(username: params[:optician][:username])
         if @optician && @optician.authenticate(params[:optician][:password])
             session[:optician_id] = @optician.id
-            redirect_to patients_path(session[:optician_id])
+            flash[:success] = "Welcome back, #{@optician.first_name}."
+            redirect_to optician_path(@optician)
         else
             flash[:error] = "Sorry, please check your credentials and try again."
             redirect_to '/login'
@@ -28,12 +29,20 @@ class SessionsController < ApplicationController
     end
 
     def home
+        redirect_to patients_path if logged_in?
     end
 
     #Logout
     def destroy
         session.clear
+        flash[:success] = "You have logged out."
         redirect_to '/'
+    end
+
+    private
+    
+    def auth
+      request.env['omniauth.auth']
     end
 
 end
