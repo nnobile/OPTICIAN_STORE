@@ -5,11 +5,11 @@ class PatientsController < ApplicationController
     end
 
     def create
-        
+
     end
 
     def index
-        @patients = Patient.all
+        @patients = Patient.order(:last_name)
     end
 
     def show
@@ -17,6 +17,9 @@ class PatientsController < ApplicationController
     end
 
     def edit
+    end
+
+    def destroy
     end
 
 
