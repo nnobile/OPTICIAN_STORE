@@ -32,8 +32,8 @@ class PatientsController < ApplicationController
     end
 
     def update
-        
         if @patient.update(patient_params)
+            flash[:success] = "This patient was successfully updated."
             redirect_to edit_patient_path(@patient)
         else
             render :edit
@@ -42,6 +42,7 @@ class PatientsController < ApplicationController
 
     def destroy
         @patient.destroy
+        flash[:success] = "This patient was successfully deleted."
         redirect_to patients_path
     end
 
