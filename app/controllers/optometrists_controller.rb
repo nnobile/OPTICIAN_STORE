@@ -31,8 +31,6 @@ include ApplicationHelper
         end
     end
 
-
-
     end
     
     

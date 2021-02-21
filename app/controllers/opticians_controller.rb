@@ -9,7 +9,7 @@ class OpticiansController < ApplicationController
     def create
         @optician = Optician.new(optician_params)
         if @optician.save
-            flash[:success] = "Welcome #{@optician.first_name} to your CleasView account."
+            flash[:success] = "Welcome #{@optician.first_name} to your ClearView account."
             session[:optician_id] = @optician.id
             redirect_to new_patient_path
         else

@@ -29,7 +29,6 @@ class SessionsController < ApplicationController
     end
 
     def home
-        redirect_to patients_path if logged_in?
     end
 
     #Logout
