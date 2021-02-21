@@ -1,4 +1,5 @@
 class OptometristsController < ApplicationController
+include ApplicationHelper
 
     def index
         @optometrists = Optometrist.all

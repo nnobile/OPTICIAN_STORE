@@ -1,4 +1,5 @@
 class PatientsController < ApplicationController
+include ApplicationHelper
 
     def index
         @patients = Patient.order(:last_name)
@@ -14,9 +15,9 @@ class PatientsController < ApplicationController
 
     def create
         if logged_in?
-            @patient = Patient.new(patient_params)
+            @patient = Patient.new(optician_id: params[:optician_id])
             @patient.save
-            redirect_to patient_path(@patient)
+            redirect_to optician_patients_path
         else
             render :new
         end
