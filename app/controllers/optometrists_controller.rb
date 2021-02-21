@@ -39,11 +39,3 @@ class OptometristsController < ApplicationController
     def optometrist_params
         params.require(:optometrist).permit(:first_name, :last_name, :optometrist_email, :phone_number, :address, :notes)
     end
-
-
-
-
-
-
-
-end
