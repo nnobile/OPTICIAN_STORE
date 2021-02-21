@@ -12,6 +12,7 @@ class OptometristsController < ApplicationController
         if logged_in?
             @optometrist = Optometrist.create(optometrist_params)
             @optometrist.save
+            redirect_to patient_path(@patient)
         else
             redirect_to signup_path
         end

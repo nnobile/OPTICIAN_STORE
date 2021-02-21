@@ -1,6 +1,5 @@
 class PatientsController < ApplicationController
 
-
     def index
         @patients = Patient.order(:last_name)
     end
@@ -14,8 +13,9 @@ class PatientsController < ApplicationController
     end
 
     def create
-        @patient = Patient.new(patient_params)
-        if @patient.save
+        if logged_in?
+            @patient = Patient.new(patient_params)
+            @patient.save
             redirect_to patient_path(@patient)
         else
             render :new

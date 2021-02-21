@@ -1,0 +1,8 @@
+<h1> All Opticians </h1>
+<h4> Optician Names: </h4>
+
+<ul><% @opticians.each do |optician| %>
+    <li> <%= optician.first_name %> <%= optician.last_name %> </li>
+
+<%end%>
+</ul>

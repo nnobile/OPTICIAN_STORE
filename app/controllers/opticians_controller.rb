@@ -5,6 +5,10 @@ class OpticiansController < ApplicationController
         @optician = Optician.new
     end
 
+    def index
+        @opticians = Optician.all
+    end
+
     # Handling signup
     def create
         @optician = Optician.new(optician_params)
