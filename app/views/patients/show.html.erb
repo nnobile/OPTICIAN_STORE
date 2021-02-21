@@ -8,5 +8,8 @@ Address: <%= @patient.address %> <br><br>
 Birthdate: <%= @patient.birthdate %> <br><br>
 Optometrist of Record: <%= @patient.optometrist.first_name %> <%= @patient.optometrist.last_name %> <br><br>
 Total Revenue: <%= @patient.total_revenue %> <br><br>
-Notes: <%= @patient.notes %>
+Notes: <%= @patient.notes %><br>
+
+<%= link_to("Edit Patient", edit_patient_path(@patient.id)) %>
+<%= link_to("Delete Patient", patient_path(@patient.id), method: 'delete') %>
 
