@@ -6,4 +6,8 @@ class Optician < ApplicationRecord
     validates :username, :email, :certificate_number, uniqueness: true 
     validates :certificate_number, uniqueness: true, length: { is: 6 }, presence: true
 
+    def self.get_id
+        @optician = Optician.id
+    end
+
 end

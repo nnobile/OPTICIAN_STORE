@@ -30,6 +30,8 @@ class OpticiansController < ApplicationController
     end
 
     
+
+    
     private
 
     def optician_params
