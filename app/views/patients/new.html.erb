@@ -14,7 +14,7 @@
     <%= f.label :birthdate %>
     <%= f.date_field :birthdate %> <br><br>
     <%= f.label :total_revenue %>
-    <%= f.number_field :total_revenue %> <br><br>
+    <%= f.number_field :total_revenue, min: 0, step: 0.01 %> <br><br>
     <%= f.label :notes %>
     <%= f.text_area :notes %> <br><br><br>
     <%= f.submit %>
