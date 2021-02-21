@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-before_action :check_for_logged_in #, except: [:index]
+    before_action :check_for_logged_in #, except: [:index]
 
     def index
         if params[:optician_id] && optician = Optician.find_by_id(params[:optician_id])
@@ -7,7 +7,6 @@ before_action :check_for_logged_in #, except: [:index]
     end
 
     def show
-        set_patient
     end
 
     def new
@@ -29,12 +28,11 @@ before_action :check_for_logged_in #, except: [:index]
         end
     end
 
-    def edit
-        set_patient 
+    def edit  
     end
 
     def update
-        set_patient
+        
         if @patient.update(patient_params)
             redirect_to edit_patient_path(@patient)
         else
@@ -43,23 +41,23 @@ before_action :check_for_logged_in #, except: [:index]
     end
 
     def destroy
-        set_patient
         @patient.destroy
         redirect_to patients_path
     end
 
 
-private
+    private
 
-    def set_patient
-        @patient = Patient.find_by(id: params[:id])
-        if !@patient
-            redirect_to patients_path
-        end
-    end
+    # def set_patient
+    #     @patient = Patient.find_by(id: params[:id])
+    #     if !@patient
+    #         redirect_to patients_path
+    #     end
+    # end
 
     def patient_params
         params.require(:patient).permit(:first_name, :last_name, :phone_number, :email, :address, :birthdate, :total_revenue, :notes, :optician_id)
     end
 
+end
 end

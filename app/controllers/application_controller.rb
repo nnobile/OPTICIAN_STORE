@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
 
     private
 
-    def check_for_logged_in
-      redirect_to '/' if !logged_in?
+    def redirect_if_not_logged_in
+        if !logged_in?
+            flash[:danger] = "You must be logged in to view the page you tried to view."
+            redirect_to '/'
+        end
     end
-
 end
