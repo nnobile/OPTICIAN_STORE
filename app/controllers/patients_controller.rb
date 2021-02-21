@@ -1,5 +1,14 @@
 class PatientsController < ApplicationController
 
+
+    def index
+        @patients = Patient.order(:last_name)
+    end
+
+    def show
+        @patient = Patient.find(params[:id])
+    end
+
     def new
         @patient = Patient.new
     end
@@ -15,29 +24,29 @@ class PatientsController < ApplicationController
 
     end
 
-    def index
-        @patients = Patient.order(:last_name)
-    end
-
-    def show
+    def edit
         @patient = Patient.find(params[:id])
     end
 
-    def edit
+    def update
+        if @patient.update(patient_params)
+            redirect_to patient_path(@patient)
+          else
+            render 'edit'
+          end
+        end
     end
 
     def destroy
+        @patient.destroy
+        redirect_to optician_index_path
     end
 
 
-    private
+private
 
     def patient_params
         params.require(:patient).permit(:first_name, :last_name, :phone_number, :email, :address, :birthdate, :total_revenue, :notes)
     end
 
 
-
-
-
-end
