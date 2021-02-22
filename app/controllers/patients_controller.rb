@@ -15,10 +15,9 @@ class PatientsController < ApplicationController
     end
 
     def create
-        if logged_in?
-            @patient = Patient.create(patient_params)
-            @patient.save
-            redirect_to opticians_path
+        @patient = current_user.patients.build(patient_params)
+        if @patient.save
+            redirect_to patients_path
         else
             render :new
         end
