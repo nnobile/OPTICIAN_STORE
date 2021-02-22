@@ -6,7 +6,7 @@ class OpticiansController < ApplicationController
     end
 
     def index
-        @opticians = Optician.all
+        @opticians = Optician.order(:last_name)
     end
 
     # Handling signup

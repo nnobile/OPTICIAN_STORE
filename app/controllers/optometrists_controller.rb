@@ -2,7 +2,7 @@ class OptometristsController < ApplicationController
 include ApplicationHelper
 
     def index
-        @optometrists = Optometrist.all
+        @optometrists = Optometrist.order(:last_name)
     end
 
     def show
