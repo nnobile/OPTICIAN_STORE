@@ -31,7 +31,7 @@ class PatientsController < ApplicationController
     def update
         if logged_in?
             @patient = Patient.find(params[:id])
-            patient.update(patient_params)
+            @patient.update(patient_params)
             flash[:success] = "Patient successfully updated."
             redirect_to patients_path
         else
