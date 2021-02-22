@@ -9,11 +9,15 @@ include ApplicationHelper
         @optometrist = Optometrist.find_by(id: params[:id])
     end
 
+    def new
+        @optometrist = Optometrist.new
+    end
+
     def create
         if logged_in?
             @optometrist = Optometrist.create(optometrist_params)
             @optometrist.save
-            redirect_to patient_path(@patient)
+            redirect_to patients_path
         else
             redirect_to signup_path
         end

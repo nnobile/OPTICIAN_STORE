@@ -15,10 +15,10 @@ class PatientsController < ApplicationController
     end
 
     def create
-        @patient = current_user.patients.build(patient_params)
-        if @patient.save
-            #flash[:success] = "New patient successfully added."
-            redirect_to optician_patients_path(@patient)
+        if logged_in?
+            @patient = Patient.create(patient_params)
+            @patient.save
+            redirect_to opticians_path
         else
             render :new
         end
