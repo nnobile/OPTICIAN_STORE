@@ -15,7 +15,7 @@ class OpticiansController < ApplicationController
         if @optician.save
             flash[:success] = "Welcome #{@optician.first_name} to your ClearView account."
             session[:optician_id] = @optician.id
-            redirect_to new_patient_path
+            redirect_to login_path
         else
             render :new
         end
