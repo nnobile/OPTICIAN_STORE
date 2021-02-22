@@ -7,7 +7,7 @@ class PatientsController < ApplicationController
     end
 
     def show
-        @patient = Patient.find(params[:id])
+        @patient = Patient.find_by(id: params[:id])
     end
 
     def new
@@ -15,10 +15,10 @@ class PatientsController < ApplicationController
     end
 
     def create
-        if logged_in?
-            @patient = Patient.create(patient_params)
-            flash[:success] = "New patient successfully added."
-            redirect_to patients_path
+        @patient = Patient.new(patient_params)
+        if @patient.save
+            #flash[:success] = "New patient successfully added."
+            redirect_to patient_path(@patient)
         else
             render :new
         end
