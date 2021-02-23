@@ -37,7 +37,7 @@ class OpticiansController < ApplicationController
     private
 
     def optician_params
-        params.require(:optician).permit(:username, :email, :password, :first_name, :last_name, :certificate_number)
+        params.require(:optician).permit(:username, :email, :password, :first_name, :last_name, :phone_number, :certificate_number)
     end
 
 
