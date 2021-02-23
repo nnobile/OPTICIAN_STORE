@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
         optician = Optician.from_omniauth(request.env['omniauth.auth'])
         if optician.valid?
             session[:optician_id] = optician.id
-            redirect_to patient_path
+            redirect_to patients_path
         else
             redirect_to signup_path
         end
