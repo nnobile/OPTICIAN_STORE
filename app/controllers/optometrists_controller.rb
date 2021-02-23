@@ -14,12 +14,11 @@ include ApplicationHelper
     end
 
     def create
-        if logged_in?
-            @optometrist = Optometrist.create(optometrist_params)
-            @optometrist.save
-            redirect_to patients_path
+            @optometrist = Optometrist.new(optometrist_params)
+            if @optometrist.save
+            redirect_to optometrists_path
         else
-            redirect_to signup_path
+            render :new
         end
     end
 

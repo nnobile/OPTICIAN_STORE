@@ -1,4 +1,5 @@
 class PatientsController < ApplicationController
+include ApplicationHelper
 
     def index
         #if params[:optician_id] && optician = Optician.find_by_id(params[:optician_id])
@@ -15,9 +16,9 @@ class PatientsController < ApplicationController
     end
 
     def create
-        @patient = current_user.patients.build(patient_params)
+        @patient = Patient.new(patient_params)
         if @patient.save
-            redirect_to patients_path
+            redirect_to opticians_path
         else
             render :new
         end
@@ -34,7 +35,7 @@ class PatientsController < ApplicationController
             flash[:success] = "Patient successfully updated."
             redirect_to patients_path
         else
-            render :edit
+            render :new
         end
     end
     
@@ -47,7 +48,7 @@ class PatientsController < ApplicationController
     private
 
     def patient_params
-        params.require(:patient).permit(:first_name, :last_name, :phone_number, :email, :address, :birthdate, :total_revenue, :notes, :optician_id)
+        params.require(:patient).permit(:first_name, :last_name, :phone_number, :email, :address, :birthdate, :total_revenue, :notes)
     end
 
 end
