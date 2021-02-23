@@ -9,6 +9,10 @@ class OpticiansController < ApplicationController
         @opticians = Optician.order(:last_name)
     end
 
+    def show
+        @optician = Optician.find_by(id: params[:id])
+    end
+
     # Handling signup
     def create
         @optician = Optician.new(optician_params)

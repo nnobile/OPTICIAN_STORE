@@ -1,0 +1,10 @@
+<h1> <%= @optician.first_name %> <%= @optician.last_name%>'s Contact Details:</h1>
+<h5>Optician</h5>
+
+First Name: <%= @optician.first_name %> <br><br>
+Last Name: <%= @optician.last_name %> <br><br>
+Email: <%= @optician.email %> <br><br>
+
+
+<%= link_to("View my Patients", patients_path(@optician.id)) %><br><br>
+<%= link_to("View my Optometrists", patients_path(@optician.id)) %><br><br>

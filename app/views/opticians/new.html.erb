@@ -19,13 +19,18 @@
     </div></br>
 
     <div><br>
+    <%= f.label :password, :required => true %>
+    <%= f.password_field :password %>
+    </div></br>
+
+    <div><br>
     <%= f.label :email, :required => true %> 
     <%= f.email_field :email %>
     </div></br>
 
     <div><br>
-    <%= f.label :password, :required => true %>
-    <%= f.password_field :password %>
+    <%= f.label :phone_number, :required => true %> 
+    <%= f.text_field :phone_number %>
     </div></br>
 
     <div><br>

@@ -2,8 +2,8 @@ class Optician < ApplicationRecord
     has_secure_password
     has_many :patients
     has_many :optometrists, through: :patients
-    validates :username, :email, :certificate_number, presence: true
-    validates :username, :email, :certificate_number, uniqueness: true 
+    validates :username, :email, :certificate_number, :phone_number, presence: true
+    validates :username, :email, :certificate_number, :phone_number, uniqueness: true 
     validates :certificate_number, uniqueness: true, length: { is: 6 }, presence: true
 
     def self.get_id
@@ -17,6 +17,6 @@ class Optician < ApplicationRecord
             u.password = SecureRandom.hex(15)
         end
     end
-    
+
 
 end

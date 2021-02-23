@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_024053) do
+ActiveRecord::Schema.define(version: 2021_02_23_030822) do
 
   create_table "opticians", force: :cascade do |t|
     t.string "username"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_024053) do
     t.integer "certificate_number"
     t.string "uid"
     t.string "provider"
+    t.string "phone_number"
   end
 
   create_table "optometrists", force: :cascade do |t|
