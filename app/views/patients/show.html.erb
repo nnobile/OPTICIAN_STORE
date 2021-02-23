@@ -1,15 +1,15 @@
 <h1> <%= @patient.first_name %> <%= @patient.last_name%>'s Patient Information:</h1>
-
+<h5>Patient</h5>
 First Name: <%= @patient.first_name %> <br><br>
 Last Name: <%= @patient.last_name %> <br><br>
 Phone Number: <%= @patient.phone_number %> <br><br>
 Email: <%= @patient.email %> <br><br>
 Address: <%= @patient.address %> <br><br>
 Birthdate: <%= @patient.birthdate %> <br><br>
-Optometrist of Record: <%= @patient.optometrist.first_name %> <%= @patient.optometrist.last_name %> <br><br>
 Total Revenue: <%= @patient.total_revenue %> <br><br>
 Notes: <%= @patient.notes %><br><br><br>
 
+<%= link_to("Optometrist of Record", optometrist_path(@patient.id)) %><br><br>
 <%= link_to("Edit Patient", edit_patient_path(@patient.id)) %> <br><br>
-<%= link_to("Delete Patient", patient_path(@patient.id), method: 'delete') %>
+<%= link_to("Delete Patient", patient_path(@patient.id), method: 'delete') %><br><br>
 
