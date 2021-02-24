@@ -2,9 +2,10 @@ class PatientsController < ApplicationController
 include ApplicationHelper
 
     def index
-        #if params[:optician_id] && optician = Optician.find_by_id(params[:optician_id])
-        #if logged_in?
-        @patients = Patient.order(:last_name)
+        if params[:optometrist_id] && @optometrist = Optometrist.find_by_id(params[:optometrist_id])
+            @patients = @optometrist.patients
+        else
+            @patients = Patient.ordered_by_revenue
     end
 
     def show
@@ -13,6 +14,7 @@ include ApplicationHelper
 
     def new
        @patient = Patient.new
+       @patient.build_optometrist
     end
 
     def create
