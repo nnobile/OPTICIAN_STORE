@@ -9,7 +9,7 @@ Birthdate: <%= @patient.birthdate %> <br><br>
 Total Revenue: <%= @patient.total_revenue %> <br><br>
 Notes: <%= @patient.notes %><br><br><br>
 
-Optometrist of Record:<%= link_to(" Dr. #{@patient.optometrist.last_name}", optometrist_path(@patient.optometrist)) %><br><br>
+Optometrist of Record:<%= link_to("Dr. #{@patient.optometrist.last_name}", optometrist_path(@patient.optometrist)) %><br><br>
 <%= link_to("Edit Patient", edit_patient_path(@patient.id)) %> <br><br>
-<%= link_to("Delete Patient", patient_path(@patient.id), method: 'delete') %><br><br>
+<%= link_to("Delete Patient", patient_path(@patient.id), method: :delete) %><br><br>
 

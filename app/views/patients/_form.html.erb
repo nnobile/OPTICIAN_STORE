@@ -23,12 +23,6 @@
     <%= f.label :notes %>
     <%= f.text_area :notes %><br><br><br>
 
-    <%= f.label :optometrist %>
-    <%= f.fields_for :optometrist do |o| %>
-        <%= o.label :first_name %>
-        <%= o.text_field :first_name %>
-    <% end %>
-
     <%= f.submit %>
 
 <% end %>

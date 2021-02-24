@@ -6,6 +6,7 @@ include ApplicationHelper
             @patients = @optometrist.patients
         else
             @patients = Patient.ordered_by_revenue
+        end
     end
 
     def show
@@ -42,6 +43,7 @@ include ApplicationHelper
     end
     
     def destroy
+        @patient = Patient.find(params[:id])
         @patient.destroy
         flash[:success] = "Patient successfully deleted."
         redirect_to patients_path
