@@ -7,7 +7,7 @@ class Optician < ApplicationRecord
     validates :certificate_number, uniqueness: true, length: { is: 6 }, presence: true
 
     def self.get_id
-        @optician = Optician.id
+        @optician = @optician.id
     end
 
     def self.from_omniauth(response)
