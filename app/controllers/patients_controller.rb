@@ -5,7 +5,7 @@ include ApplicationHelper
         if params[:optician_id] && @optician = Optician.find_by_id(params[:optician_id])
             @patients = @optician.patients
         else
-            redirect_to optometrists_path
+            redirect_to root_path
         end
     end
 
