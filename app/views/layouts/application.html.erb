@@ -13,7 +13,8 @@
   <body>
   <%= link_to("Home", optician_patients_path(current_user.id))%>&nbsp
   <%= link_to("Opticians", opticians_path)%>&nbsp 
-  <%= link_to("Optometrists", optometrists_path)%>&nbsp 
+  <%= link_to("Optometrists", optometrists_path)%>&nbsp
+  <%= link_to("Logout", logout_path)%>&nbsp
     <%= yield %>
   </body>
 </html>
