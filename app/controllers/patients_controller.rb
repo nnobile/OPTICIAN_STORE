@@ -20,6 +20,7 @@ include ApplicationHelper
 
     def create
         @patient = current_user.patients.build(patient_params)
+        #binding.pry
         if @patient.save
             redirect_to opticians_path
         else
