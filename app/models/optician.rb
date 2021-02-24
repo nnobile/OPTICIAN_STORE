@@ -18,5 +18,8 @@ class Optician < ApplicationRecord
         end
     end
 
+    
+
+
 
 end

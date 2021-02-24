@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         @optician = Optician.find_by(username: params[:optician][:username])
         if @optician && @optician.authenticate(params[:optician][:password])
             session[:optician_id] = @optician.id
-            flash[:success] = "Welcome, #{@optician.first_name}."
+            flash[:alert] = "Welcome, #{@optician.first_name}."
             redirect_to optician_patients_path(@optician.id)
         else
             flash[:error] = "Sorry, please check your credentials and try again."

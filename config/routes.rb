@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   resources :opticians do
-    resources :patients, only: [:create, :index]
+    resources :patients, only: [:create, :index, :new]
   end
   resources :optometrists
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

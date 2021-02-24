@@ -11,4 +11,10 @@ class Patient < ApplicationRecord
         self.order(total_revenue: :desc)
     end
 
+    def self.count_of_patients
+        self.length
+    end
+
+    #scope :count_of_patients, -> (opt_id){where('optician_id = ?', opt_id)}
+    
 end
