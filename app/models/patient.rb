@@ -15,6 +15,11 @@ class Patient < ApplicationRecord
         self.length
     end
 
+    def full_name
+        full_name = [last_name, first_name].map(&:capitalize).join(", ")
+    end
+
+
     #scope :count_of_patients, -> (opt_id){where('optician_id = ?', opt_id)}
     
 end

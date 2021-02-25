@@ -50,6 +50,7 @@ include ApplicationHelper
         redirect_to patients_path
     end
 
+
     private
 
     def patient_params
