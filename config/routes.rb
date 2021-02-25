@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :patients
+  resources :optometrists
   root 'sessions#home'
   get '/signup', to: 'opticians#new'
   get '/login', to: 'sessions#new'
@@ -8,7 +9,8 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   resources :opticians do
     resources :patients, only: [:create, :index, :new]
+    resources :optometrists, only: [:create, :index, :new]
   end
-  resources :optometrists
+ 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

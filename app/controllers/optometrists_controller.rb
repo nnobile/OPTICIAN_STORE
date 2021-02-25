@@ -2,7 +2,11 @@ class OptometristsController < ApplicationController
 include ApplicationHelper
 
     def index
-        @optometrists = Optometrist.order(:last_name)
+        if params[:optician_id] && @optician = Optician.find_by_id(params[:optician_id])
+            @optometrists = @optician.optometrists
+        else
+            redirect_to optometrists_path
+        end
     end
 
     def show

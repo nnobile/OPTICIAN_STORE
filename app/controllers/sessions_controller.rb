@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
             redirect_to optician_patients_path(@optician.id)
         else
             flash[:error] = "Sorry, please check your credentials and try again."
-            redirect_to '/login'
+            redirect_to root_path
         end
     end
 
