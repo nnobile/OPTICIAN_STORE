@@ -1,10 +1,9 @@
 <h1> All Optometrists </h1>
-<h4> Optometrist Names: </h4>
 
+<h4> Optometrist Names: </h4>
 <ul><% @optometrists.each do |optometrist| %>
-    <li> <%= optometrist.first_name %> <%= optometrist.last_name %> </li>
+    <li> <%= link_to optometrist.full_name, optometrist_path(optometrist) %> </li>
 
 <%end%>
 
 </ul>
-
