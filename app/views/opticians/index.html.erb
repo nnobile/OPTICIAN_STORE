@@ -2,7 +2,7 @@
 <h4> Optician Names: </h4>
 
 <ul><% @opticians.each do |optician| %>
-    <li> <%= optician.first_name %> <%= optician.last_name %> </li>
+    <li> <%= link_to optician.full_name, optician_path(optician) %> </li>
 
 <%end%>
 
