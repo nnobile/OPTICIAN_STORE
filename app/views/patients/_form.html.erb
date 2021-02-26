@@ -1,4 +1,13 @@
-
+<% if @patient.errors.any? %>
+    <div id="error_explanation">
+    <h2> <%= pluralize(@patient.errors.count, "error") prohibited entry from being saved %>
+    <ul>
+        <% @optician.errors.full_messages.each do |msg| %>
+            <li> <%= msg %></li>
+        <% end %> 
+    </ul>
+    </div>
+<% end %>
 
 
 <%= form_for @patient do |f| %>
