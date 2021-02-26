@@ -17,10 +17,11 @@ class OpticiansController < ApplicationController
     def create
         @optician = Optician.new(optician_params)
         if @optician.save
-            #flash[:success] = "Welcome #{@optician.first_name} to your ClearView account."
+            flash[:message] = "Welcome #{@optician.first_name} to your ClearView account."
             session[:optician_id] = @optician.id
-            redirect_to optician_patients_path(@optician.id)
+            redirect_to optician_patients_path(current_user.id)
         else
+            flash[:message] = @optician.errors.full_messages.join("")
             render :new
         end
     end

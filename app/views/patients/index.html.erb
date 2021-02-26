@@ -11,6 +11,8 @@
 </ul>
 <%end%>
 
-<%= link_to("Create Patient", new_patient_path)%>
+<%= link_to("Create Patient", new_patient_path)%><br><br><br>
+
+<%= flash[:message] = "Logged in as: #{@optician.username}." %>
 
 

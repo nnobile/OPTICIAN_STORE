@@ -1,3 +1,10 @@
+<% if @errors && !@errors.empty? %>
+    <% @errors.each do |e| %>
+        <p><%= e %></p>
+    <% end %>
+<% end %>
+
+
 <h1>Optician Registration</h1>
 <h3>Please fill out the below form and click "Register" once complete.</h3>
 
