@@ -5,9 +5,9 @@ class OpticiansController < ApplicationController
         @optician = Optician.new
     end
 
-    def index
-        @opticians = Optician.order(:last_name)
-    end
+    # def index
+    #     @opticians = Optician.all
+    # end
 
     def show
         @optician = Optician.find_by(id: params[:id])

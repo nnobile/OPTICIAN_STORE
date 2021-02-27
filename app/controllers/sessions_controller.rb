@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     def create
         @optician = Optician.find_by(username: params[:optician][:username])
         if @optician && @optician.authenticate(params[:optician][:password])
-            session.clear
+            #session.clear
             session[:optician_id] = @optician.id
             redirect_to optician_patients_path(@optician.id)
         else

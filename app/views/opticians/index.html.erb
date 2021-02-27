@@ -1,9 +1,0 @@
-<h1> All Opticians </h1>
-<h4> Optician Names: </h4>
-
-<ul><% @opticians.each do |optician| %>
-    <li> <%= link_to optician.full_name, optician_path(optician) %> </li>
-
-<%end%>
-
-</ul>

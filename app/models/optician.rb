@@ -4,7 +4,7 @@ class Optician < ApplicationRecord
     has_many :optometrists, through: :patients
     validates :username, :email, presence: true
     #accepts_nested_attributes_for :optometrists
-    #validates :username, :email, :certificate_number, :phone_number, uniqueness: true 
+    validates :username, :email, uniqueness: true  #:certificate_number, :phone_number,
     #validates :certificate_number, uniqueness: true, length: { is: 6 }
 
     def self.get_id
@@ -26,8 +26,8 @@ class Optician < ApplicationRecord
         end
     end
 
-    def full_name
-        full_name = [last_name, first_name].map(&:capitalize).join(", ")
-    end
+    # def full_name
+    #     full_name = [last_name, first_name].map(&:capitalize).join(", ")
+    # end
 
 end
