@@ -22,7 +22,7 @@ include ApplicationHelper
         @patient = current_user.patients.build(patient_params)
         if @patient.save
             #@patient.optometrist << Optometrist.find(params[:optometrist_id]) 
-            redirect_to optician_patients_path
+            redirect_to optician_patients_path(@optician.id)
         else
             #binding.pry
             render :new
