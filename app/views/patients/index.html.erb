@@ -4,7 +4,7 @@
 <% if @patients.length > 0 %>
 
 <h4> Patient Names: </h4>
-<% @patients.each do |patient| %>
+<% @patients.ordered_by_revenue.each do |patient| %>
     <li><%= link_to patient.full_name, patient_path(patient) %></li><br>
 <%end%>
 
