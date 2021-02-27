@@ -22,7 +22,7 @@ include ApplicationHelper
         @patient = current_user.patients.build(patient_params)
         if @patient.save
             #@patient.optometrist << Optometrist.find(params[:optometrist_id]) 
-            redirect_to optician_patients_path(@optician.id)
+            redirect_to optician_patients_path(current_user.id)
         else
             #binding.pry
             render :new
@@ -37,8 +37,8 @@ include ApplicationHelper
         if logged_in?
             @patient = Patient.find(params[:id])
             @patient.update(patient_params)
-            flash[:success] = "Patient successfully updated."
-            redirect_to patients_path
+            #flash[:success] = "Patient successfully updated."
+            redirect_to optician_patients_path(current_user.id)
         else
             render :new
         end
