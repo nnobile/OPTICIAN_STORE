@@ -26,7 +26,6 @@ class OpticiansController < ApplicationController
         end
     end
 
-
     def destroy
         if logged_in?
             current_user.destroy

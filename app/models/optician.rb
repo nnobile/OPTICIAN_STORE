@@ -3,7 +3,7 @@ class Optician < ApplicationRecord
     has_many :patients
     has_many :optometrists, through: :patients
     validates :username, :email, presence: true
-    accepts_nested_attributes_for :optometrists
+    #accepts_nested_attributes_for :optometrists
     #validates :username, :email, :certificate_number, :phone_number, uniqueness: true 
     #validates :certificate_number, uniqueness: true, length: { is: 6 }
 

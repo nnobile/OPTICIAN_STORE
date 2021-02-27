@@ -14,14 +14,14 @@ include ApplicationHelper
     end
 
     def new
-       @patient = Patient.new
-       @patient.build_optometrist
+        @patient = Patient.new
+        @patient.build_optometrist
     end
 
     def create
         @patient = current_user.patients.build(patient_params)
-        
         if @patient.save
+            @patient.optometrist << Optometrist.find(params[:optometrist_id]) 
             redirect_to optician_patients_path
         else
             #binding.pry
@@ -55,7 +55,7 @@ include ApplicationHelper
     private
 
     def patient_params
-        params.require(:patient).permit(:first_name, :last_name, :phone_number, :email, :address, :birthdate, :total_revenue, :notes)
+        params.require(:patient).permit(:first_name, :last_name, :phone_number, :email, :address, :birthdate, :total_revenue, :notes, :optometrist_id, optometrist_attributes: [:last_name])
     end
 
 end
