@@ -2,9 +2,9 @@ class Optician < ApplicationRecord
     has_secure_password
     has_many :patients
     has_many :optometrists, through: :patients
-    validates :username, :email, :certificate_number, :phone_number, presence: true
-    validates :username, :email, :certificate_number, :phone_number, uniqueness: true 
-    validates :certificate_number, uniqueness: true, length: { is: 6 }, presence: true
+    validates :username, :email, presence: true
+    #validates :username, :email, :certificate_number, :phone_number, uniqueness: true 
+    #validates :certificate_number, uniqueness: true, length: { is: 6 }
 
     def self.get_id
         @optician = @optician.id

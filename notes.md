@@ -32,7 +32,6 @@ Errors:
     <% end %>
 
 1 - Omniauth route needs to redirect to registration page IF no existing user is recognized.
-2 - Build lougout links and add to every view
 3 - Order by revenue in the Patient view in order to apply the scope method
 4 - In the patient create form, we need to add a dropdown for the optometrist index which will allow the user to select. Also, we need to create a link_to in order to redirect to a new optometrist.
 5 - Remove Optometrist Patients link

@@ -19,14 +19,13 @@ class SessionsController < ApplicationController
 
     def omniauth
         #check step 8 in google oauth2 for rails guide
-        optician = Optician.from_omniauth(request.env['omniauth.auth'])
-        if optician.valid?
-            session.clear
-            session[:optician_id] = optician.id
-            redirect_to optician_patients_path(current_user.id)
+        @optician = Optician.from_omniauth(request.env['omniauth.auth'])
+        if @optician.valid?
+            #session.clear
+            session[:optician_id] = @optician.id
+            redirect_to optician_patients_path(@optician.id)
         else
-            flash[:message] = optician.errors.full_messages.join("")
-            redirect_to signup_path
+            redirect_to root_path
         end
     end
 
