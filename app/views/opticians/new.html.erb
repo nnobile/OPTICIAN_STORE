@@ -1,7 +1,12 @@
-<% if @errors && !@errors.empty? %>
-    <% @errors.each do |e| %>
-        <p><%= e %></p>
-    <% end %>
+<% if @optician.errors.any? %>
+<div id="error_explanation">
+<h2> <%= pluralize(@optician.errors.count, "error") %> prohibited entry from being saved </h2>
+    <ul>
+        <% @optician.errors.full_messages.each do |msg| %>
+            <li> <%= msg %></li>
+        <% end %> 
+    </ul>
+    </div>
 <% end %>
 
 
