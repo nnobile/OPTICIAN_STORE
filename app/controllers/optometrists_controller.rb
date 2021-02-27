@@ -2,10 +2,10 @@ class OptometristsController < ApplicationController
 include ApplicationHelper
 
     def index
-        if params[:optician_id] && @optician = Optician.find_by_id(params[:optician_id])
-            @optometrists = @optician.optometrists
-        else
+        if logged_in? 
             @optometrists = Optometrist.all
+        else
+           redirect_to root_path
         end
     end
 
