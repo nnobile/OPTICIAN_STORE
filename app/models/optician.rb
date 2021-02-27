@@ -3,6 +3,7 @@ class Optician < ApplicationRecord
     has_many :patients
     has_many :optometrists, through: :patients
     validates :username, :email, presence: true
+    accepts_nested_attributes_for :optometrists
     #validates :username, :email, :certificate_number, :phone_number, uniqueness: true 
     #validates :certificate_number, uniqueness: true, length: { is: 6 }
 
@@ -15,6 +16,13 @@ class Optician < ApplicationRecord
             u.username = response[:info][:name]
             u.email = response[:info][:email]
             u.password = SecureRandom.hex(15)
+        end
+    end
+
+    def optometrist_attributes=(optometrist_attributes)
+        optometrist_attributes.values.each do |optometrist_attribute|
+          optometrist = Optometrist.find_or_create_by(optometrist_attribute)
+          self.optometrists << optometrist
         end
     end
 

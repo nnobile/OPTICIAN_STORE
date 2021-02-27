@@ -44,5 +44,5 @@ include ApplicationHelper
     private 
 
     def optometrist_params
-        params.require(:optometrist).permit(:first_name, :last_name, :optometrist_email, :phone_number, :address, :notes)
+        params.require(:optometrist).permit(:first_name, :last_name, :optometrist_email, :phone_number, :address, :notes, patient_ids:[])
     end

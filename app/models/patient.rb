@@ -4,9 +4,6 @@ class Patient < ApplicationRecord
     validates :first_name, :last_name, presence: true
     accepts_nested_attributes_for :optometrist
 
-
-    #scope :patients_optician, -> (opt_id){where('optician_id = ?', opt_id)}
-
     def self.ordered_by_revenue
         self.order(total_revenue: :desc)
     end
@@ -18,8 +15,5 @@ class Patient < ApplicationRecord
     def full_name
         full_name = [last_name, first_name].map(&:capitalize).join(", ")
     end
-
-
-    #scope :count_of_patients, -> (opt_id){where('optician_id = ?', opt_id)}
     
 end

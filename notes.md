@@ -31,12 +31,10 @@ Errors:
         <%= o.text_field :first_name %>
     <% end %>
 
-1 - Omniauth route needs to redirect to registration page IF no existing user is recognized. :/
-3 - Order by revenue in the Patient view in order to apply the scope method
-4 - In the patient create form, we need to add a dropdown for the optometrist index which will allow the user to select. Also, we need to create a link_to in order to redirect to a new optometrist.
-5 - Remove Optometrist Patients link
-6 - Need to ensure that newly created + all linked Optometrist's display in the "My Optometrists" view
-7 - In Optometrist Index, remove the specific name for the Optician. The Optometrist Index should not be Optician specific. We need to basically link the patient to the optometrist and vice versa. Order the Optometrist index by newly created surfacing at the top list.
+1 - Omniauth route needs to redirect to registration page IF no existing user is recognized. WIP
+2 - Order by revenue in the Patient view in order to apply the scope method (done)
+3 - In the patient create form, we need to add a dropdown for the optometrist index which will allow the user to select. Also, we need to create a link_to in order to redirect to a new optometrist. WIP
+4 - We need to basically link the patient to the optometrist and vice versa. WIP
 
 
 
