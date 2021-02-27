@@ -5,7 +5,7 @@ include ApplicationHelper
         if params[:optician_id] && @optician = Optician.find_by_id(params[:optician_id])
             @optometrists = @optician.optometrists
         else
-            redirect_to optometrists_path
+            @optometrists = Optometrist.all
         end
     end
 
@@ -20,7 +20,7 @@ include ApplicationHelper
     def create
             @optometrist = Optometrist.new(optometrist_params)
             if @optometrist.save
-            redirect_to optometrists_path
+            redirect_to optometrist_path(@optometrist.id)
         else
             render :new
         end

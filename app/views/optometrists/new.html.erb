@@ -1,4 +1,15 @@
-<h2>Create New Optometrist</h2>
+<h1>Create New Optometrist</h1>
+
+<% if @optometrist.errors.any? %>
+<div id="error_explanation">
+<h2> <%= pluralize(@optometrist.errors.count, "error") %> prohibited entry from being saved </h2>
+    <ul>
+        <% @optometrist.errors.full_messages.each do |msg| %>
+            <li> <%= msg %></li>
+        <% end %> 
+    </ul>
+    </div>
+<% end %>
 
 <%= form_for(@optometrist) do |f| %>
     <%= f.label :first_name %>
