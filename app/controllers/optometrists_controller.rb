@@ -25,22 +25,9 @@ include ApplicationHelper
             render :new
         end
     end
-
-    def destroy
-        # upon deletion, reassign all linked patients to dummy optometrist
-        # opticians that are not linked to optometrist can delete optometrist?
-        if logged_in?
-            @current_optometrist = Optometrist.find_by(id: params[:id])
-            @current_optometrist.destroy
-            redirect_to optometrists_path
-        else
-            redirect_to signup_path
-        end
-    end
-
-    end
+end
     
-    
+
     private 
 
     def optometrist_params
