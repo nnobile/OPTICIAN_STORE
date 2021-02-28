@@ -18,14 +18,13 @@ include ApplicationHelper
     end
 
     def create
-            @optometrist = Optometrist.new(optometrist_params)
-            if @optometrist.save
+        @optometrist = Optometrist.new(optometrist_params)
+        if @optometrist.save
             redirect_to optometrist_path(@optometrist.id)
         else
             render :new
         end
     end
-end
     
 
     private 
@@ -33,3 +32,5 @@ end
     def optometrist_params
         params.require(:optometrist).permit(:first_name, :last_name, :optometrist_email, :phone_number, :address, :notes, patient_ids:[])
     end
+
+end
