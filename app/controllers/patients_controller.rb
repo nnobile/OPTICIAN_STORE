@@ -37,7 +37,7 @@ include ApplicationHelper
         if logged_in?
             @patient = Patient.find(params[:id])
             @patient.update(patient_params)
-            #flash[:success] = "Patient successfully updated."
+            flash[:message] = "Patient successfully updated."
             redirect_to optician_patients_path(current_user.id)
         else
             render :new
@@ -47,7 +47,7 @@ include ApplicationHelper
     def destroy
         @patient = Patient.find(params[:id])
         @patient.destroy
-        flash[:success] = "Patient successfully deleted."
+        flash[:message] = "Patient successfully deleted."
         redirect_to optician_patients_path(current_user.id)
     end
 
