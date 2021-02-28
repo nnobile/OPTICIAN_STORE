@@ -1,7 +1,12 @@
 <h1>Welcome to The ClearView Relationship Management Portal</h1>
 <h3>Built for Opticians to manage their Patient & Optometrist contacts</h3>
 
+<% if flash[:message] %>
+<div class="message"><%= flash[:message] %></div>
+<% end %><br><br>
+
 <%= link_to "Sign up", signup_path %> <br><br>
 <%= link_to "Log in", login_path %> <br><br>
 Or<br><br>
 <%= button_to "Log in with Google", '/auth/google_oauth2'  %>
+

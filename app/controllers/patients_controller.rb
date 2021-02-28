@@ -7,11 +7,11 @@ before_action :redirect_if_not_logged_in
             if @optician.id == current_user.id
                 @patients = @optician.patients
             else
-                flash[:message] = "You are not authorized to view this page."
+                flash[:message] = "You were not authorized to view another optician's patient list."
                 redirect_to root_path  
             end
         else
-            flash[:message] = "You are not authorized to view this page."
+            flash[:message] = "You were not authorized to view this page."
             redirect_to root_path
         end
     end
