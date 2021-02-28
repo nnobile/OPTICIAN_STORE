@@ -37,7 +37,7 @@
 
     <%= f.label :optometrist %>
     <%= f.collection_select :optometrist_id, Optometrist.all, :id, :full_name, prompt: true %><br><br>
-        If your Optometrist isn't present, click here to <%= link_to("create Optometrist", new_optometrist_path)%> <br><br><br>
+        If your Optometrist isn't present, click here to <%= link_to("create Optometrist.", new_optometrist_path)%> <br><br><br>
     <%= f.submit %>
-    
+
 <% end %>
