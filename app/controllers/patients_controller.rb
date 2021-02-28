@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
 include ApplicationHelper
+before_action :redirect_if_not_logged_in
 
     def index
         if params[:optician_id] && @optician = Optician.find_by_id(params[:optician_id])
@@ -24,7 +25,6 @@ include ApplicationHelper
             #@patient.optometrist << Optometrist.find(params[:optometrist_id]) 
             redirect_to optician_patients_path(current_user.id)
         else
-            #binding.pry
             render :new
         end
     end
