@@ -2,9 +2,9 @@ class Optician < ApplicationRecord
     has_secure_password
     has_many :patients
     has_many :optometrists, through: :patients
-    validates :username, :email, presence: true
+    validates :username, :email, presence: true #remove this one
     #accepts_nested_attributes_for :optometrists
-    validates :username, :email, uniqueness: true  #:certificate_number, :phone_number,
+    validates :username, :email, uniqueness: true  #:certificate_number, :phone_number, #remove this one
     #validates :certificate_number, uniqueness: true, length: { is: 6 }
 
     def self.get_id
