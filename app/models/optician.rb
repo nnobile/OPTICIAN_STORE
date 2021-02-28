@@ -4,6 +4,7 @@ class Optician < ApplicationRecord
     has_many :optometrists, through: :patients
     validates :username, :email, presence: true
     validates :username, :email, uniqueness: true
+    validates :certificate_number, length: { in: 5..6 }, allow_nil: true, uniqueness: true
 
     def self.get_id
         @optician = @optician.id
