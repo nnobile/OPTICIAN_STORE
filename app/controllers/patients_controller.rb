@@ -48,7 +48,7 @@ include ApplicationHelper
         @patient = Patient.find(params[:id])
         @patient.destroy
         flash[:success] = "Patient successfully deleted."
-        redirect_to patients_path
+        redirect_to optician_patients_path(current_user.id)
     end
 
 
