@@ -25,8 +25,4 @@ class Optician < ApplicationRecord
         end
     end
 
-    # def full_name
-    #     full_name = [last_name, first_name].map(&:capitalize).join(", ")
-    # end
-
 end

@@ -28,7 +28,6 @@ before_action :redirect_if_not_logged_in
     def create
         @patient = current_user.patients.build(patient_params)
         if @patient.save
-            #@patient.optometrist << Optometrist.find(params[:optometrist_id]) 
             redirect_to optician_patients_path(current_user.id)
         else
             render :new
