@@ -1,7 +1,7 @@
 class Patient < ApplicationRecord
     belongs_to :optometrist
     belongs_to :optician
-    validates :first_name, :last_name, presence: true
+    validates :first_name, :last_name, :total_revenue, :phone_number, :email, presence: true
     #accepts_nested_attributes_for :optometrist
 
     def self.ordered_by_revenue

@@ -2,7 +2,11 @@ class Optician < ApplicationRecord
     has_secure_password
     has_many :patients
     has_many :optometrists, through: :patients
-    #validates :email, presence: true #:username
+    validates :username, :email, presence: true
+    validates :username, :email, uniqueness: true
+
+
+    #validates :email, presence: true #:username 
     #accepts_nested_attributes_for :optometrists
     #validates :email, uniqueness: true  #:certificate_number, :phone_number, :username
     #validates :certificate_number, uniqueness: true, length: { is: 6 }
