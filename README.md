@@ -1,6 +1,6 @@
-# Travelize on Rails
+# Optician Store
 
-Welcome to the Optician Relationship Management Rails Web App! This app was created with the intention to create and track Optician business relationships (Patients and Optometrists). It is a basic Rails project to fulfill project requirements at Flatiron School. Further functionality and development will continue in later projects.
+Welcome to the ClearView Relationship Management Rails Web App! This app was built for Opticians to manage their Patient & Optometrist contacts. It is a basic Rails project to fulfill project requirements at Flatiron School. Further functionality and development will continue in later projects.
 
 # Installation
 Clone this repository and execute: 
