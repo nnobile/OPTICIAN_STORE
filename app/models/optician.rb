@@ -6,10 +6,6 @@ class Optician < ApplicationRecord
     validates :username, :email, uniqueness: true
     validates :certificate_number, length: { in: 5..6 }, allow_nil: true, uniqueness: true
 
-    def self.get_id
-        @optician = @optician.id
-    end
-
     def self.from_omniauth(response)
         Optician.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
             u.username = response[:info][:name]
