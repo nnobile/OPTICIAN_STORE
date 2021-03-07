@@ -8,5 +8,9 @@ module ApplicationHelper
         !!session[:optician_id]
     end
 
+    def authorized
+        redirect_to root_path unless logged_in?
+    end
+
 
 end

@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 include ApplicationHelper
-before_action :redirect_if_not_logged_in
+before_action :redirect_if_not_logged_in, :redirect_if_not_current_user
 
     def index
         if params[:optician_id] && @optician = Optician.find_by_id(params[:optician_id]) 
