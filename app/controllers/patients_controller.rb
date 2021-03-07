@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 include ApplicationHelper
-before_action :redirect_if_not_logged_in, :redirect_if_not_current_user
+before_action :redirect_if_not_logged_in
 
     def index
         if params[:optician_id] && @optician = Optician.find_by_id(params[:optician_id]) 
@@ -42,7 +42,6 @@ before_action :redirect_if_not_logged_in, :redirect_if_not_current_user
         if logged_in?
             @patient = Patient.find(params[:id])
             @patient.update(patient_params)
-            flash[:message] = "Patient successfully updated."
             redirect_to optician_patients_path(current_user.id)
         else
             render :new
@@ -52,7 +51,6 @@ before_action :redirect_if_not_logged_in, :redirect_if_not_current_user
     def destroy
         @patient = Patient.find(params[:id])
         @patient.destroy
-        flash[:message] = "Patient successfully deleted."
         redirect_to optician_patients_path(current_user.id)
     end
 

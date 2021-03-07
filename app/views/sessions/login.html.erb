@@ -17,3 +17,7 @@
     </div></br>
     <% end %> 
 <% end %>
+
+<% if flash[:message] %><br>
+<div class="message" style="color: red; font-size: 20px; font-style: italic;"><%= flash[:message] %></div><br>
+<% end %>
