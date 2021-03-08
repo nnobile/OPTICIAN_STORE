@@ -17,9 +17,10 @@ before_action :redirect_if_not_logged_in
     end
 
     def show
-        if params[:optician_id] && @optician = Optician.find_by_id(params[:optician_id]) 
-            if @optician.id == current_user.id
-                @patient = Patient.find_by(id: params[:id])
+        if params[:optician_id] && @optician = Optician.find_by_id(params[:optician_id])
+            @patient = Patient.find_by(id: params[:id])
+            if current_user.id == @patient.optician_id
+                @patient
             else
                 flash[:message] = "You are not authorized to view another optician's patient list."
                 redirect_to root_path 

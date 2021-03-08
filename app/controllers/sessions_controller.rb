@@ -18,9 +18,10 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        optician = Optician.from_omniauth(request.env['omniauth.auth'])
-        if optician.valid?
-            session[:optician_id] = optician.id
+        @optician = Optician.from_omniauth(request.env['omniauth.auth'])
+        if @optician.valid?
+            session.clear
+            session[:optician_id] = @optician.id
             redirect_to optician_patients_path(current_user)
         else
             redirect_to root_path
