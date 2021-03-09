@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/patients/abc', to: 'patients#abc'
   resources :patients
   resources :optometrists
   root 'sessions#home'

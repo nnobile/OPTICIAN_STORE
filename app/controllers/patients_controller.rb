@@ -65,6 +65,11 @@ before_action :redirect_if_not_logged_in
         redirect_to optician_patients_path(current_user.id)
     end
 
+    def abc
+        @patients = Patient.order_alphabetically
+    end
+
+
 
     private
 

@@ -14,5 +14,9 @@ class Patient < ApplicationRecord
     def full_name
         full_name = [last_name, first_name].map(&:capitalize).join(", ")
     end
+
+    def self.order_alphabetically
+        self.order(last_name: :desc)
+    end
     
 end
