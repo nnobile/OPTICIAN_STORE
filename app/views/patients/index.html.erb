@@ -1,4 +1,4 @@
-<h1> All Dr.<%=@optometrist.last_name%>'s Patients </h1>
+<h1> All Dr. <%=@optometrist.last_name%>'s Patients </h1>
 
 
 
@@ -13,7 +13,7 @@
 </ul>
 <%end%>
 
-<%= link_to("Create Patient", new_patient_path)%><br><br><br>
+<%= link_to("Create Patient", new_optometrist_patient_path(@optometrist.id))%><br><br><br>
 <%= link_to("Optometrist's Details", optometrist_path(@optometrist.id))%><br><br><br>
 
 
