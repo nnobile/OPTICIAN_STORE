@@ -5,7 +5,7 @@
 
 <h4> Patient Names: </h4>
 <% @patients.ordered_by_revenue.each do |patient| %>
-    <li><%= link_to patient.full_name, optician_patient_path(@optician, patient) %></li><br>
+    <li><%= link_to patient.full_name, optometrist_patient_path(@optometrist, patient) %></li><br>
 <%end%>
 
 </ul>
