@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         if @optician && @optician.authenticate(params[:optician][:password])
             session.clear
             session[:optician_id] = @optician.id
-            redirect_to optician_patients_path(@optician.id)
+            redirect_to optometrists_path
         else
             flash[:message] = "Sorry, please check your credentials and try again."
             redirect_to login_path
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
         if @optician.valid?
             session.clear
             session[:optician_id] = @optician.id
-            redirect_to optician_patients_path(current_user)
+            redirect_to optometrists_path
         else
             redirect_to root_path
         end
