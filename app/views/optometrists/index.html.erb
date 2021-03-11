@@ -2,7 +2,7 @@
 
 <h4> Optometrist Names: </h4>
 <ul><% @optometrists.order(:created_at).reverse.each do |optometrist| %>
-    <li> <%= link_to optometrist.full_name, optometrist_path(optometrist) %> </li>
+    <li> <%= link_to optometrist.full_name, optometrist_patients_path(optometrist) %> </li>
 
 <%end%>
 <br><br></ul>
