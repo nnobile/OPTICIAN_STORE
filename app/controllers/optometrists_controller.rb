@@ -20,7 +20,7 @@ include ApplicationHelper
     def create
         @optometrist = Optometrist.new(optometrist_params)
         if @optometrist.save
-            redirect_to optometrist_path(@optometrist.id)
+            redirect_to optometrists_path
         else
             render :new
         end
