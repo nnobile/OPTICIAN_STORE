@@ -1,5 +1,7 @@
 <h1> All Dr.<%=@optometrist.last_name%>'s Patients </h1>
 
+
+
 <h2> Number of patients: <%= @patients.length %> </h2>
 <% if @patients.length > 0 %>
 
@@ -12,5 +14,6 @@
 <%end%>
 
 <%= link_to("Create Patient", new_patient_path)%><br><br><br>
+<%= link_to("Optometrist's Details", optometrist_path(@optometrist.id))%><br><br><br>
 
 
