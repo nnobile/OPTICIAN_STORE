@@ -13,7 +13,7 @@
   <body>
   <% if logged_in? %>
     <%= link_to("Home", root_path)%>&nbsp
-    <%= link_to("My Optometrists", optometrists_path)%>&nbsp 
+    <%= link_to("Optometrists", optometrists_path)%>&nbsp 
     <%= link_to("Logout", logout_path, method: :delete)%>&nbsp
   <%end%> 
   <%= yield %>
