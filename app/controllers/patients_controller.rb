@@ -12,7 +12,7 @@ before_action :redirect_if_not_logged_in
     end
 
     def show
-        if params[:optometrist_id] && @optometrist = Optometrist.find_by_id(params[:optician_id])
+        if params[:optometrist_id] && @optometrist = Optometrist.find_by_id(params[:optometrist_id])
             @patient = Patient.find_by(id: params[:id])
         else
             flash[:message] = "Please go through optometrist directory to view patient details."
@@ -28,7 +28,7 @@ before_action :redirect_if_not_logged_in
     def create
         @patient = current_user.patients.build(patient_params)
         if @patient.save
-            redirect_to optician_patients_path(current_user.id)
+            redirect_to optometrists_path
         else
             render :new
         end
@@ -42,7 +42,7 @@ before_action :redirect_if_not_logged_in
         if logged_in?
             @patient = Patient.find(params[:id])
             @patient.update(patient_params)
-            redirect_to optician_patients_path(current_user.id)
+            redirect_to optometrists_path
         else
             render :new
         end
@@ -51,7 +51,7 @@ before_action :redirect_if_not_logged_in
     def destroy
         @patient = Patient.find(params[:id])
         @patient.destroy
-        redirect_to optician_patients_path(current_user.id)
+        redirect_to optometrists_path
     end
 
     def abc
