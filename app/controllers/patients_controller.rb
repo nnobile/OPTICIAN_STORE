@@ -3,13 +3,8 @@ include ApplicationHelper
 before_action :redirect_if_not_logged_in
 
     def index
-        if params[:optician_id] && @optician = Optician.find_by_id(params[:optician_id]) 
-            if @optician.id == current_user.id
-                @patients = @optician.patients
-            else
-                flash[:message] = "You are not authorized to view another optician's patient list."
-                redirect_to root_path  
-            end
+        if params[:optometrist_id] && @optometrist = Optometrist.find_by_id(params[:optometrist_id])
+            @patients = @optometrist.patients
         else
             flash[:message] = "You are not authorized to view this page."
             redirect_to root_path
