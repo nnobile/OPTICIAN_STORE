@@ -9,7 +9,8 @@
     </div>
 <% end %>
 
-<%= form_for (@patient) do |f| %>
+<%= form_for ([@optometrist, @patient]) do |f| %>
+    <%= display_optometrist(@optometrist, f) %>
 
     <%= f.label :first_name %>
     <%= f.text_field :first_name %><br><br>
@@ -35,9 +36,6 @@
     <%= f.label :notes %>
     <%= f.text_area :notes %><br><br>
 
-    <%= f.label :optometrist %>
-    <%= f.collection_select :optometrist_id, Optometrist.all, :id, :full_name, prompt: true %><br><br>
-        If your Optometrist isn't present, click here to <%= link_to("create Optometrist.", new_optometrist_path)%> <br><br><br>
     <%= f.submit %>
 
 <% end %>

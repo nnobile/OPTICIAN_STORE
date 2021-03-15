@@ -21,8 +21,12 @@ before_action :redirect_if_not_logged_in
     end
 
     def new
-        @patient = Patient.new
-        @patient.build_optometrist
+        if params[:optometrist_id] && @optometrist = Optometrist.find_by_id(params[:optometrist_id])
+            @patient = @optometrist.patients.build
+        else
+            @patient = Patient.new
+            @patient.build_optometrist
+        end
     end
 
     def create
