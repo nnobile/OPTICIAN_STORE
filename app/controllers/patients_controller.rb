@@ -30,8 +30,10 @@ before_action :redirect_if_not_logged_in
     end
 
     def create
+        @optometrist = Optometrist.find_by_id(params[:optometrist_id])
         @patient = current_user.patients.build(patient_params)
         if @patient.save
+            flash[:message] = "Successfully added new patient linked to Dr. #{@optometrist.last_name}."
             redirect_to optometrists_path
         else
             render :new
@@ -46,6 +48,7 @@ before_action :redirect_if_not_logged_in
         if logged_in?
             @patient = Patient.find(params[:id])
             @patient.update(patient_params)
+            flash[:message] = "Successfully updated #{@patient.first_name}'s information."
             redirect_to optometrists_path
         else
             render :new

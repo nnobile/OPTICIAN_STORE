@@ -1,5 +1,9 @@
 <h1> All Optometrists </h1>
 
+<% if flash[:message] %><br>
+<div class="message" style="color: green; font-size: 20px; font-style: italic;"><%= flash[:message] %></div><br>
+<% end %>
+
 <h4> Optometrist Names: </h4>
 <ul><% @optometrists.order(:created_at).reverse.each do |optometrist| %>
     <li> <%= link_to optometrist.full_name, optometrist_patients_path(optometrist) %> </li>
